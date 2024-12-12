@@ -1,19 +1,20 @@
-trigger:
+
+ trigger:
   branches:
     include:
       - main  # Trigger on changes to the 'main' branch
 
-pool:
+ pool:
   vmImage: 'ubuntu-latest'
 
-steps:
+ steps:
   - task: AzureResourceManagerTemplateDeployment@3
     inputs:
-      azureSubscription: 'praveenyada3626@gmail.com'   # Your Azure Subscription (use Service Connection)
-      action: 'Create Or Update Resource Group'
-      resourceGroupName: 'praveen9515'  # Name of the resource group where the Logic App will be deployed
-      location: 'North Central US'  # Region
-      templateLocation: 'Linked artifact'
-      csmFile: '$(Build.SourcesDirectory)/template.json'  # Path to ARM template
-      csmParametersFile: '$(Build.SourcesDirectory)/parameters.json'  # Optional: If you have a parameters file
-      deploymentMode: 'Incremental'
+      azureSubscription: "praveenyada3626@gmail.com"   # Your Azure Subscription (use Service Connection)
+      action: "Create Or Update Resource Group"
+      resourceGroupName: "praveen9515"  # Name of the resource group where the Logic App will be deployed
+      location: "North Central US"  # Region
+      templateLocation: "Linked artifact"
+      csmFile: "$(Build.SourcesDirectory)/template.json"  # Path to ARM template
+      csmParametersFile: "$(Build.SourcesDirectory)/parameters.json"  
+      deploymentMode: Incremental
